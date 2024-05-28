@@ -73,3 +73,4 @@ Implementar un sistema CRUD en un entorno gráfico en java que permita una gesti
 
 Jesus Julian Esparza Rosas
 Juan Pablo Campos Avila
+Jesus Fernando De Anda Villalobos
