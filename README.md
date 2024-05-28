@@ -69,3 +69,6 @@ Implementar un sistema CRUD en un entorno gráfico en java que permita una gesti
 19. Cerrar sesión de usuario
 20. Ser amigable con el usuario
 
+## Colaboradores
+
+Jesus Julian Esparza Rosas 
