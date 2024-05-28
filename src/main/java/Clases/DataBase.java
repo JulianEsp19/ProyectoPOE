@@ -13,6 +13,7 @@ public class DataBase {
     public DataBase() {
         this.conexion = null;
         this.stmt = null;
+        conectar();
     }
     
     //Funcion para conectar con la base de datos
@@ -22,7 +23,6 @@ public class DataBase {
             Class.forName("org.sqlite.JDBC");
             //Se hace la conexion a la base de datos
             conexion = DriverManager.getConnection(direccionBaseDatos);
-            crearTablas();
         }catch(Exception e){
             System.err.println(e.getClass().getName() + ":" + e.getMessage());
         }
@@ -39,7 +39,7 @@ public class DataBase {
             //String en comando sql para la primera tabla
             String primeraTabla = "CREATE TABLE Usuarios"+
                     "("+
-                    "ID_Usuario INT PRIMARY   KEY       NOT NULL," +
+                    "ID_Usuario               INT    PRIMARY KEY    NOT NULL," +
                     "NombreUsuario            TEXT      NOT NULL,"+
                     "ContrasenaUsuario        TEXT      NOT NULL,"+
                     "TipoAcceso               INT       NOT NULL"+
@@ -51,7 +51,19 @@ public class DataBase {
                     basicamente ya si el campo se necesitara que se llene se pone NOT NULL*/
                     ")";
             
-            String tercerTabla = "CREATE TABLE ##########";
+            String tercerTabla = "CREATE TABLE Inventario"+
+                    "("+
+                    "Lugar                    TEXT,"+
+                    "NumTarimas               INT,"+
+                    "Clave                    TEXT,"+
+                    "Cliente                  TEXT,"+
+                    "Modelo                   TEXT,"+
+                    "PzBulto                  INT,"+
+                    "TotalBultos              INT,"+
+                    "PzExtras                 INT,"+
+                    "TotalPiezas              INT,"+
+                    "Nota                     TEXT"+
+                    ")";
             
             //Ejecucion de codigo sql
             stmt.execute(primeraTabla);
