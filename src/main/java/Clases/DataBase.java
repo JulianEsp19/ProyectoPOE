@@ -31,54 +31,145 @@ public class DataBase {
     }
     
     //Funcion para crear las tablas de la base de datos
-    //ADVERTENCIA: aun falta encontrar la forma de verificar si existen las tablas
-    //antes de ejecutar, para asi no perder recursos haciendolo
     private void crearTablas(){
         try{
             //Inicializacion de ejecutador
             stmt = conexion.createStatement();
-            //String en comando sql para la primera tabla
-            String primeraTabla = "CREATE TABLE Usuarios"+
-                    "("+
-                    "NombreUsuario            TEXT      NOT NULL,"+
-                    "ContrasenaUsuario        TEXT      NOT NULL,"+
-                    "TipoAcceso               BOOL       NOT NULL"+
-                    ")";
-            //Ejecucion de codigo sql
-            stmt.execute(primeraTabla);
+            String verificacion = "SELECT name \n" +
+                "FROM sqlite_master \n" +
+                "WHERE type = 'table' \n" +
+                "AND name =";
+            ResultSet resultado = null;
+            boolean comprobacion = false;
             
+            /* try con dos acciones la de hacer la consulta para observar si es que
+            la tabla existe y la segunda una variable booleana que guarda un true
+            o false con este hecho, pero si es que la tabla no existe al querer usar 
+            la variable booleana soltara un error porque la tabla no tiene valores
+            lo cual hace pasar al catch que creara la tabla*/
+            try{
+                resultado = stmt.executeQuery(verificacion + "'Usuarios'");
+                comprobacion = resultado.getString(1).equals("Usuarios");
+            }catch(Exception e){
+                crearTablaUsuarios();
+            }
             
-            String segundTabla = "CREATE TABLE ########"+  //Se pondra el nombre de la tabla 
-                    "("+ /* y se agregaran las columnas necesarias para su acceso 
-                    Donde sera a partir de la siguiente sintaxis:
-                    NombreColumna  TipoDeDato
-                    basicamente ya si el campo se necesitara que se llene se pone NOT NULL*/
-                    ")";
+            try{
+            resultado = stmt.executeQuery(verificacion + "'Salida'");
+            comprobacion = resultado.getString(1).equals("Salida");
+            }catch(Exception e){
+                crearTablaSalida();
+            }
             
-            String tercerTabla = "CREATE TABLE Inventario"+
-                    "("+
-                    "Lugar                    TEXT,"+
-                    "NumTarimas               INT,"+
-                    "Clave                    TEXT,"+
-                    "Cliente                  TEXT,"+
-                    "Modelo                   TEXT,"+
-                    "PzBulto                  INT,"+
-                    "TotalBultos              INT,"+
-                    "PzExtras                 INT,"+
-                    "TotalPiezas              INT,"+
-                    "Nota                     TEXT"+
-                    ")";
+            try{
+                resultado = stmt.executeQuery(verificacion + "'Inventario'");
+                comprobacion = resultado.getString(1).equals("Inventario");
+            }catch(Exception e){
+                crearTablaInventario();
+            }
             
-            stmt.execute(tercerTabla);
-            String cuartaTabla = "CREATE TABLE #####"+
-                    "("+
-                    ""+
-                    ")";
+            try{
+                resultado = stmt.executeQuery(verificacion + "'Ingresos'");
+                comprobacion = resultado.getString(1).equals("Ingresos");
+            }catch(Exception e){
+                crearTablaIngresos();
+            }
+            
             
             //Cierre de ejecutador
             stmt.close();
         }catch(Exception e){
             System.out.println("" + e.getMessage() + "");
         }
+    }
+    
+    private void crearTablaUsuarios() throws SQLException{
+        //String en comando sql para la primera tabla
+                String primeraTabla = "CREATE TABLE Usuarios"+
+                        "("+
+                        "NombreUsuario            TEXT      NOT NULL,"+
+                        "ContrasenaUsuario        TEXT      NOT NULL,"+
+                        "TipoAcceso               BOOL       NOT NULL"+
+                        ")";
+                //Ejecucion de codigo sql
+                stmt.execute(primeraTabla);
+    }
+    
+    private void crearTablaSalida() throws SQLException{
+        String segundaTabla = "CREATE TABLE Salida"+
+                        "("+ 
+                        "Lugar                   TEXT,"+
+                        "NumDeTarimas            INT,"+
+                        "R_OP                    INT,"+
+                        "Clave                   TEXT,"+
+                        "Cliente                 TEXT,"+
+                        "Modelo                  TEXT,"+
+                        "PiezaPorBulto           INT,"+
+                        "TotalBultos             INT,"+
+                        "PiezasExtras            INT,"+
+                        "TotalPiezas             INT"+
+                        ")";
+                stmt.execute(segundaTabla); 
+    }
+    
+    private void crearTablaInventario() throws SQLException{
+        
+                String tercerTabla = "CREATE TABLE Inventario"+
+                        "("+
+                        "Lugar                    TEXT,"+
+                        "NumTarimas               INT,"+
+                        "Clave                    TEXT,"+
+                        "Cliente                  TEXT,"+
+                        "Modelo                   TEXT,"+
+                        "PzBulto                  INT,"+
+                        "TotalBultos              INT,"+
+                        "PzExtras                 INT,"+
+                        "TotalPiezas              INT,"+
+                        "Nota                     TEXT"+
+                        ")";
+
+                stmt.execute(tercerTabla);
+    }
+    
+    private void crearTablaIngresos() throws SQLException{
+        
+                String cuartaTabla = "CREATE TABLE Ingresos"+
+                        "("+
+                        "FechaIngreso              TEXT,"+
+                        "Almacen                   TEXT,"+
+                        "FechaDE_R_OP              TEXT,"+
+                        "FechaSalidaCliente        TEXT,"+
+                        "ProgramadaCheckList       TEXT,"+
+                        "NumPedidoProvedor         INT,"+
+                        "R_OP                      TEXT,"+
+                        "OrdenCompra               TEXT,"+
+                        "OrdenCompraProvedor       TEXT,"+
+                        "Alto                      FLOAT,"+
+                        "Ancho                     FLOAT,"+
+                        "Largo                     FLOAT,"+
+                        "CalibreFlauta             FLOAT,"+
+                        "Medidas                   FLOAT,"+
+                        "ClaveProducto             INT,"+
+                        "Modelo                    TEXT,"+
+                        "TipoEntregar              TEXT,"+
+                        "ClaveIdentificador        TEXT,"+
+                        "R_0P2                     TEXT,"+
+                        "Clave                     TEXT,"+
+                        "Provedor                  TEXT,"+
+                        "Cliente                   TEXT,"+
+                        "Tarimas                   INT,"+
+                        "PiezasporBulto            INT,"+
+                        "TotalBultos               INT,"+
+                        "TotalPiezas               INT,"+
+                        "PiezasRequendas           INT,"+
+                        "Paletizado                INT,"+
+                        "CamaPorPaletA1            INT,"+
+                        "CamaPorpaIetA2            INT,"+
+                        "EstibasPorPalet           INT,"+
+                        "TotalPiezasFinaI          INT"+
+                        ")";
+
+                stmt.execute(cuartaTabla);
+            
     }
 }
