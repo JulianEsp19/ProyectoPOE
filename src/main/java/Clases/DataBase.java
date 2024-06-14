@@ -23,6 +23,7 @@ public class DataBase {
             Class.forName("org.sqlite.JDBC");
             //Se hace la conexion a la base de datos
             conexion = DriverManager.getConnection(direccionBaseDatos);
+            crearTablas();
         }catch(Exception e){
             System.err.println(e.getClass().getName() + ":" + e.getMessage());
         }
@@ -39,11 +40,14 @@ public class DataBase {
             //String en comando sql para la primera tabla
             String primeraTabla = "CREATE TABLE Usuarios"+
                     "("+
-                    "ID_Usuario               INT    PRIMARY KEY    NOT NULL," +
                     "NombreUsuario            TEXT      NOT NULL,"+
                     "ContrasenaUsuario        TEXT      NOT NULL,"+
-                    "TipoAcceso               INT       NOT NULL"+
+                    "TipoAcceso               BOOL       NOT NULL"+
                     ")";
+            //Ejecucion de codigo sql
+            stmt.execute(primeraTabla);
+            
+            
             String segundTabla = "CREATE TABLE ########"+  //Se pondra el nombre de la tabla 
                     "("+ /* y se agregaran las columnas necesarias para su acceso 
                     Donde sera a partir de la siguiente sintaxis:
@@ -65,8 +69,12 @@ public class DataBase {
                     "Nota                     TEXT"+
                     ")";
             
-            //Ejecucion de codigo sql
-            stmt.execute(primeraTabla);
+            stmt.execute(tercerTabla);
+            String cuartaTabla = "CREATE TABLE #####"+
+                    "("+
+                    ""+
+                    ")";
+            
             //Cierre de ejecutador
             stmt.close();
         }catch(Exception e){
