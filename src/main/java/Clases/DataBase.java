@@ -85,91 +85,91 @@ public class DataBase {
     
     private void crearTablaUsuarios() throws SQLException{
         //String en comando sql para la primera tabla
-                String primeraTabla = "CREATE TABLE Usuarios"+
-                        "("+
-                        "NombreUsuario            TEXT      NOT NULL,"+
-                        "ContrasenaUsuario        TEXT      NOT NULL,"+
-                        "TipoAcceso               BOOL       NOT NULL"+
-                        ")";
-                //Ejecucion de codigo sql
-                stmt.execute(primeraTabla);
+        String primeraTabla = "CREATE TABLE Usuarios"+
+                "("+
+                "NombreUsuario            TEXT      NOT NULL,"+
+                "ContrasenaUsuario        TEXT      NOT NULL,"+
+                "TipoAcceso               BOOL       NOT NULL"+
+                ")";
+        //Ejecucion de codigo sql
+        stmt.execute(primeraTabla);
     }
     
     private void crearTablaSalida() throws SQLException{
         String segundaTabla = "CREATE TABLE Salida"+
-                        "("+ 
-                        "Lugar                   TEXT,"+
-                        "NumDeTarimas            INT,"+
-                        "R_OP                    INT,"+
-                        "Clave                   TEXT,"+
-                        "Cliente                 TEXT,"+
-                        "Modelo                  TEXT,"+
-                        "PiezaPorBulto           INT,"+
-                        "TotalBultos             INT,"+
-                        "PiezasExtras            INT,"+
-                        "TotalPiezas             INT"+
-                        ")";
-                stmt.execute(segundaTabla); 
+                "("+ 
+                "Lugar                   TEXT,"+
+                "NumDeTarimas            INT,"+
+                "R_OP                    INT,"+
+                "Clave                   TEXT,"+
+                "Cliente                 TEXT,"+
+                "Modelo                  TEXT,"+
+                "PiezaPorBulto           INT,"+
+                "TotalBultos             INT,"+
+                "PiezasExtras            INT,"+
+                "TotalPiezas             INT"+
+                ")";
+        stmt.execute(segundaTabla); 
     }
     
     private void crearTablaInventario() throws SQLException{
         
-                String tercerTabla = "CREATE TABLE Inventario"+
-                        "("+
-                        "Lugar                    TEXT,"+
-                        "NumTarimas               INT,"+
-                        "Clave                    TEXT,"+
-                        "Cliente                  TEXT,"+
-                        "Modelo                   TEXT,"+
-                        "PzBulto                  INT,"+
-                        "TotalBultos              INT,"+
-                        "PzExtras                 INT,"+
-                        "TotalPiezas              INT,"+
-                        "Nota                     TEXT"+
-                        ")";
+        String tercerTabla = "CREATE TABLE Inventario"+
+                "("+
+                "Lugar                    TEXT,"+
+                "NumTarimas               INT,"+
+                "Clave                    TEXT,"+
+                "Cliente                  TEXT,"+
+                "Modelo                   TEXT,"+
+                "PzBulto                  INT,"+
+                "TotalBultos              INT,"+
+                "PzExtras                 INT,"+
+                "TotalPiezas              INT,"+
+                "Nota                     TEXT"+
+                ")";
 
-                stmt.execute(tercerTabla);
+        stmt.execute(tercerTabla);
     }
     
     private void crearTablaIngresos() throws SQLException{
         
-                String cuartaTabla = "CREATE TABLE Ingresos"+
-                        "("+
-                        "FechaIngreso              TEXT,"+
-                        "Almacen                   TEXT,"+
-                        "FechaDE_R_OP              TEXT,"+
-                        "FechaSalidaCliente        TEXT,"+
-                        "ProgramadaCheckList       TEXT,"+
-                        "NumPedidoProvedor         INT,"+
-                        "R_OP                      TEXT,"+
-                        "OrdenCompra               TEXT,"+
-                        "OrdenCompraProvedor       TEXT,"+
-                        "Alto                      FLOAT,"+
-                        "Ancho                     FLOAT,"+
-                        "Largo                     FLOAT,"+
-                        "CalibreFlauta             FLOAT,"+
-                        "Medidas                   FLOAT,"+
-                        "ClaveProducto             INT,"+
-                        "Modelo                    TEXT,"+
-                        "TipoEntregar              TEXT,"+
-                        "ClaveIdentificador        TEXT,"+
-                        "R_0P2                     TEXT,"+
-                        "Clave                     TEXT,"+
-                        "Provedor                  TEXT,"+
-                        "Cliente                   TEXT,"+
-                        "Tarimas                   INT,"+
-                        "PiezasporBulto            INT,"+
-                        "TotalBultos               INT,"+
-                        "TotalPiezas               INT,"+
-                        "PiezasRequendas           INT,"+
-                        "Paletizado                INT,"+
-                        "CamaPorPaletA1            INT,"+
-                        "CamaPorpaIetA2            INT,"+
-                        "EstibasPorPalet           INT,"+
-                        "TotalPiezasFinaI          INT"+
-                        ")";
+        String cuartaTabla = "CREATE TABLE Ingresos"+
+                "("+
+                "FechaIngreso              TEXT,"+
+                "Almacen                   TEXT,"+
+                "FechaDE_R_OP              TEXT,"+
+                "FechaSalidaCliente        TEXT,"+
+                "ProgramadaCheckList       TEXT,"+
+                "NumPedidoProvedor         INT,"+
+                "R_OP                      TEXT,"+
+                "OrdenCompra               TEXT,"+
+                "OrdenCompraProvedor       TEXT,"+
+                "Alto                      FLOAT,"+
+                "Ancho                     FLOAT,"+
+                "Largo                     FLOAT,"+
+                "CalibreFlauta             FLOAT,"+
+                "Medidas                   FLOAT,"+
+                "ClaveProducto             INT,"+
+                "Modelo                    TEXT,"+
+                "TipoEntregar              TEXT,"+
+                "ClaveIdentificador        TEXT,"+
+                "R_0P2                     TEXT,"+
+                "Clave                     TEXT,"+
+                "Provedor                  TEXT,"+
+                "Cliente                   TEXT,"+
+                "Tarimas                   INT,"+
+                "PiezasporBulto            INT,"+
+                "TotalBultos               INT,"+
+                "TotalPiezas               INT,"+
+                "PiezasRequendas           INT,"+
+                "Paletizado                INT,"+
+                "CamaPorPaletA1            INT,"+
+                "CamaPorpaIetA2            INT,"+
+                "EstibasPorPalet           INT,"+
+                "TotalPiezasFinaI          INT"+
+                ")";
 
-                stmt.execute(cuartaTabla);
+        stmt.execute(cuartaTabla);
             
     }
 }

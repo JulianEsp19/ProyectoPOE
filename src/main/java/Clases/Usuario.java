@@ -12,6 +12,12 @@ public class Usuario {
         this.tipoAcceso = tipoAcceso;
     }
 
+    public Usuario(String usuario, String contrasena) {
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.tipoAcceso = false;
+    }
+
     public String getUsuario() {
         return usuario;
     }

@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<root>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><root>
+    
+    <!--NO BORRAR-->
+    <String value="Usuario"/>
+    <String value="Contrasena"/>
     <!-- 
     Para agregar nuevos String's seguir el siguiente formato:
-    <String value"(nombre del String)">(texto del String)</String>
+    <String value="(nombre del String)">(texto del String)</String>
     -->
 </root>
-

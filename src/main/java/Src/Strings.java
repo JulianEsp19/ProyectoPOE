@@ -2,6 +2,9 @@ package Src;
 
 import java.io.File;
 import javax.xml.parsers.*;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.*;
+import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.*;
 
 
@@ -32,10 +35,33 @@ public class Strings {
             System.out.println(nodoString.getAttributes().getNamedItem("value"));
             if(nodoString.getAttributes().getNamedItem("value").getTextContent().equals(nombreText)){
                 texto = nodoString.getTextContent();
+                return texto;
             }
         }
         
-        return texto;
+        return null;
+    }
+    
+    public void escribirXML(String nodo, String value) throws TransformerConfigurationException, TransformerException{
+        
+            
+        NodeList listaString = documento.getElementsByTagName("String");
+        for(int i = 0; i<listaString.getLength(); i++){
+            
+            Node nodoString = listaString.item(i);
+            
+            if(nodoString.getAttributes().getNamedItem("value").getTextContent().equals(nodo)){
+                nodoString.setTextContent(value);
+                break;
+            }
+        }
+        
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(documento);
+        StreamResult result = new StreamResult(new File("src/main/java/Src/Strings.xml"));
+        transformer.transform(source, result);
+        
     }
     
     
