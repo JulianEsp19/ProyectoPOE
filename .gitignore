@@ -1,3 +1,4 @@
-target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lsttarget/classes/Clases/*.class
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/classes/Clases/*.class
 target/classes/Forms/*.class
 target/classes/Src/*.class

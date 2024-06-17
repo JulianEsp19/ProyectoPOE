@@ -8,7 +8,10 @@ public class Editar extends DataBase{
     public Editar() {
     }
     
-    public void editarUsuario(Usuario antiguo, Usuario nuevo) throws SQLException{
+    //Funcion con sql que edita Toda la informacion del usuario completa
+    //Donde se espera que el Usuario antiguo tenga por lo menos nombreUsuario y contrasenaUsuario
+    //y que el nuevo cuente con todos los campos de un Usuario
+    public void editarUsuarioCompleto(Usuario antiguo, Usuario nuevo) throws SQLException{
         int rowid = 0;
         stmt = conexion.createStatement();
         
@@ -23,6 +26,25 @@ public class Editar extends DataBase{
         String editarUsuario = "UPDATE Usuarios SET "
                 + "NombreUsuario = '"+nuevo.getUsuario()+"', "
                 + "ContrasenaUsuario = '"+nuevo.getContrasena() + "', "
+                + "TipoAcceso = "+nuevo.getTipoAcceso()+" "
+                + "WHERE ROWID="+ rowid;
+        
+        stmt.executeUpdate(editarUsuario);
+        stmt.close();
+    }
+    
+    //Funcion para editar el tipo de acceso de un usuario donde se espera solo nombre del usuario
+    public void editarUsuarioAcceso(Usuario antiguo, Usuario nuevo) throws SQLException{
+        int rowid = 0;
+        
+        String busquedaAntiguo = "SELECT ROWID FROM Usuarios WHERE "
+                + "NombreUsuario = '" + antiguo.getUsuario() + "'";
+        
+        ResultSet resultado = stmt.executeQuery(busquedaAntiguo);
+        
+        rowid = resultado.getInt("rowid");
+        
+        String editarUsuario = "UPDATE Usuarios SET "
                 + "TipoAcceso = "+nuevo.getTipoAcceso()+" "
                 + "WHERE ROWID="+ rowid;
         
