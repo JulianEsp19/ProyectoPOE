@@ -1,5 +1,6 @@
 Forms\Main.class
 Forms\Main$2.class
+Clases\Editar.class
 Clases\DataBase.class
 Clases\UsuarioLogIn.class
 Forms\Main$3.class
@@ -7,6 +8,7 @@ Forms\Usuarios$2.class
 Forms\Inventario$1.class
 Forms\Usuarios.class
 Forms\Buscar.class
+Clases\Eliminar.class
 Src\Strings.class
 Forms\Main$5.class
 Forms\Usuarios$1.class
