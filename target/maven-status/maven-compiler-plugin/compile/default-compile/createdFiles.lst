@@ -1,5 +1,8 @@
 Forms\Main.class
+Forms\Login$3.class
 Forms\Main$2.class
+Clases\Editar.class
+Forms\Login$1.class
 Clases\DataBase.class
 Clases\UsuarioLogIn.class
 Forms\Main$3.class
@@ -7,13 +10,17 @@ Forms\Usuarios$2.class
 Forms\Inventario$1.class
 Forms\Usuarios.class
 Forms\Buscar.class
+Clases\Eliminar.class
 Src\Strings.class
+Forms\Login$2.class
 Forms\Main$5.class
 Forms\Usuarios$1.class
 Forms\Usuarios$3.class
+Forms\TestJava.class
 Clases\Agregar.class
 Forms\Inventario.class
 Forms\Main$4.class
+Forms\Login.class
 Forms\Main$1.class
 Clases\Usuario.class
 Forms\Buscar$1.class
