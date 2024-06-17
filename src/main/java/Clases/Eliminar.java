@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Clases;
 
-/**
- *
- * @author Julian
- */
-public class Eliminar {
+import java.sql.SQLException;
+
+public class Eliminar extends DataBase {
+
+    public Eliminar() {
+    }
     
+    public void eliminarUsuario(Usuario usuario) throws SQLException{
+        stmt = conexion.createStatement();
+        
+        String eliminarUsuario = "DELETE FROM Usuarios WHERE "
+                + "NombreUsuario='"+ usuario.getUsuario() + "' "
+                + "AND ContrasenaUsuario='"+ usuario.getContrasena()+ "'";
+        
+        stmt.execute(eliminarUsuario);
+        stmt.close();
+    }
 }

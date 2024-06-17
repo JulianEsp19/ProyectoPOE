@@ -21,6 +21,7 @@ Clases\Agregar.class
 Forms\Inventario.class
 Forms\Main$4.class
 Forms\Login.class
+Clases\Busqueda.class
 Forms\Main$1.class
 Clases\Usuario.class
 Forms\Buscar$1.class
