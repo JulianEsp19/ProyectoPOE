@@ -18,6 +18,12 @@ public class Usuario {
         this.tipoAcceso = false;
     }
 
+    public Usuario(String usuario, Boolean tipoAcceso) {
+        this.usuario = usuario;
+        this.tipoAcceso = tipoAcceso;
+        this.contrasena = "";
+    }
+
     public String getUsuario() {
         return usuario;
     }

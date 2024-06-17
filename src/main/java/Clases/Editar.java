@@ -34,7 +34,7 @@ public class Editar extends DataBase{
     }
     
     //Funcion para editar el tipo de acceso de un usuario donde se espera solo nombre del usuario
-    public void editarUsuarioAcceso(Usuario antiguo, Usuario nuevo) throws SQLException{
+    public void editarUsuarioAcceso(Usuario antiguo, boolean accesoNuevo) throws SQLException{
         int rowid = 0;
         
         String busquedaAntiguo = "SELECT ROWID FROM Usuarios WHERE "
@@ -45,7 +45,7 @@ public class Editar extends DataBase{
         rowid = resultado.getInt("rowid");
         
         String editarUsuario = "UPDATE Usuarios SET "
-                + "TipoAcceso = "+nuevo.getTipoAcceso()+" "
+                + "TipoAcceso = "+accesoNuevo
                 + "WHERE ROWID="+ rowid;
         
         stmt.executeUpdate(editarUsuario);
