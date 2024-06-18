@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class AgregarInventario extends javax.swing.JInternalFrame {
 
-        private String FechaIngreso1;
+    private String FechaIngreso1;
     private String Almacen1;
     private String FechaDe_R_OP1;
     private String FechaSalidaCliente1;

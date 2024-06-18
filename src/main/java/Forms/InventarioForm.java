@@ -1,11 +1,13 @@
 package Forms;
 
 import Clases.UsuarioLogIn;
+import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDesktopPane;
 import javax.xml.transform.TransformerException;
 
 /**
@@ -17,11 +19,15 @@ public class InventarioForm extends javax.swing.JFrame {
     /**
      * Creates new form Inventario
      */
+    private JDesktopPane desktopPane;
     
     UsuarioLogIn login;
     public InventarioForm(UsuarioLogIn login) {
         initComponents();
         this.login = login;
+        desktopPane = new JDesktopPane();
+        setLayout(new BorderLayout());
+        add(desktopPane, BorderLayout.CENTER);
     }
     
     @Override
@@ -69,6 +75,11 @@ public class InventarioForm extends javax.swing.JFrame {
         jMenu1.setText("ENTRADAS");
 
         jMenuItem1.setText("Agregar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Consultar");
@@ -85,6 +96,11 @@ public class InventarioForm extends javax.swing.JFrame {
         jMenu2.setText("SALIDAS");
 
         jMenuItem3.setText("Agregar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("Consultar");
@@ -101,6 +117,11 @@ public class InventarioForm extends javax.swing.JFrame {
         jMenu9.setText("INVENTARIO");
 
         jMenuItem5.setText("Agregar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu9.add(jMenuItem5);
 
         jMenuItem6.setText("Consultar");
@@ -120,14 +141,14 @@ public class InventarioForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(346, Short.MAX_VALUE)
+                .addContainerGap(628, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(394, Short.MAX_VALUE)
+                .addContainerGap(513, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(35, 35, 35))
         );
@@ -181,6 +202,26 @@ public class InventarioForm extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        AgregarInventario entrada = new AgregarInventario();
+        desktopPane.add(entrada);
+        entrada.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        AgregarSalidas salida = new AgregarSalidas();
+        desktopPane.add(salida);
+        salida.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        AgregarInventarios inventarios = new AgregarInventarios();
+        desktopPane.add(inventarios);
+        inventarios.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
