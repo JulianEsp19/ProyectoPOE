@@ -49,7 +49,7 @@ public class AgregarInventarios extends javax.swing.JInternalFrame {
         BtnVolver = new javax.swing.JButton();
         BtnGuardar = new javax.swing.JButton();
 
-        setTitle("Agregar inventario");
+        setTitle("Agregar inventarios");
 
         jLabel1.setText("Lugar");
 
