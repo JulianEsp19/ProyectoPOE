@@ -6,6 +6,14 @@ import java.sql.SQLException;
 import javax.xml.transform.TransformerException;
 
 public class UsuarioLogIn extends DataBase{
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
     
     private Usuario usuario;
     private boolean sesionIniciada;
