@@ -11,8 +11,7 @@ public class Eliminar extends DataBase {
         stmt = conexion.createStatement();
         
         String eliminarUsuario = "DELETE FROM Usuarios WHERE "
-                + "NombreUsuario='"+ usuario.getUsuario() + "' "
-                + "AND ContrasenaUsuario='"+ usuario.getContrasena()+ "'";
+                + "NombreUsuario='"+ usuario.getUsuario() + "'";
         
         stmt.execute(eliminarUsuario);
         stmt.close();
