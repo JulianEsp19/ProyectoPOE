@@ -26,6 +26,7 @@ public class Busqueda extends DataBase{
             lista.insertar(nombreUsuario, tipoAcceso);
         }
         
+        stmt.close();
         return lista.toObject();
     }
     
@@ -77,6 +78,41 @@ public class Busqueda extends DataBase{
             
             lista.insertar(nodo);
         }
+        
+        stmt.close();
+        
+        return lista.toObject();
+    }
+    
+    public Object[] obtenerTodoElInventario() throws SQLException{
+        ListaInventario lista = new ListaInventario();
+        
+        stmt = conexion.createStatement();
+        
+        String busquedaUsuario = "SELECT * FROM Inventario";
+        
+        ResultSet resultado = stmt.executeQuery(busquedaUsuario);
+        
+        while(resultado.next()){
+            
+            String Lugar = resultado.getString("Lugar");
+            int NumTarimas = resultado.getInt("NumTarimas");
+            String Clave = resultado.getString("Clave");
+            String Cliente = resultado.getString("Cliente");
+            String Modelo = resultado.getString("Modelo");
+            int PzBulto = resultado.getInt("PzBulto");
+            int TotalBultos = resultado.getInt("TotalBultos");
+            int PzExtras = resultado.getInt("PzExtras");
+            int TotalPiezas = resultado.getInt("TotalPiezas");
+            String Nota = resultado.getString("Nota");
+
+
+            NodoInventario nodo = new NodoInventario(Lugar, NumTarimas, Clave, Cliente, Modelo, PzBulto, TotalBultos, PzExtras, TotalPiezas, Nota);
+            
+            lista.insertar(nodo);
+        }
+        
+        stmt.close();
         
         return lista.toObject();
     }
