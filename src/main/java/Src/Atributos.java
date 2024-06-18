@@ -2,7 +2,7 @@ package Src;
 
 public class Atributos {
     
-    public String[] Ingresos = {"FechaIngreso", 
+    public static String[] Ingresos = {"FechaIngreso", 
         "Almacen", 
         "FechaDe_R_OP", 
         "FechaSalidaCliente", 
@@ -35,7 +35,7 @@ public class Atributos {
         "CalibreFlauta", 
         "Medidas"
         };
-    public String[] Salida = {"Lugar", 
+    public static String[] Salida = {"Lugar", 
         "NumDeTarimas", 
         "R_OP", 
         "Clave", 
@@ -46,7 +46,7 @@ public class Atributos {
         "PiezasExtras", 
         "TotalPiezas"
         };
-    public String[] Inventario = {"Lugar", 
+    public static String[] Inventario = {"Lugar", 
         "NumTarimas", 
         "Clave", 
         "Cliente", 
