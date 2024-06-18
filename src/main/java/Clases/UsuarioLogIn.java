@@ -38,10 +38,12 @@ public class UsuarioLogIn extends DataBase{
                     this.usuario = usuario;
                     this.usuario.setTipoAcceso(resultado.getBoolean("TipoAcceso"));
                     sesionIniciada = true;
+                    stmt.close();
                     return sesionIniciada;
                 }
             }
         }
+        stmt.close();
         return false;
     }
     

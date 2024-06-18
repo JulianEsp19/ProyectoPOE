@@ -192,7 +192,7 @@ public class Usuarios extends javax.swing.JFrame {
         int confirmacion = JOptionPane.showConfirmDialog(null, "¿Deseas cambiar el tipo de acceso ?");
         if(filaseleccionada != -1 && confirmacion == JOptionPane.YES_OPTION){
             String usuarioSeleccionado = (String) modelo.getValueAt(filaseleccionada, 0);
-            boolean usuarioAcceso = (boolean) modelo.getValueAt(filaseleccionada, 1);
+            Boolean usuarioAcceso = (Boolean) modelo.getValueAt(filaseleccionada, 1);
             Usuario usuario = new Usuario(usuarioSeleccionado);
             Editar editar = new Editar(); 
             try {

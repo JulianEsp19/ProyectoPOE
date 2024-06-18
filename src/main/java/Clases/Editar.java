@@ -35,13 +35,14 @@ public class Editar extends DataBase{
     
     //Funcion para editar el tipo de acceso de un usuario donde se espera solo nombre del usuario
     public void editarUsuarioAcceso(Usuario antiguo, boolean accesoNuevo) throws SQLException{
+        
+        stmt = conexion.createStatement();
+        
         String editarUsuario = "UPDATE Usuarios SET "
                 + "TipoAcceso = "+accesoNuevo
-                + "WHERE NombreUsuario ='"+ antiguo.getUsuario() + "'";
+                + " WHERE NombreUsuario =' "+ antiguo.getUsuario() + " '";
         
-        
-        
-        stmt.executeUpdate(editarUsuario);
+        stmt.execute(editarUsuario);
         stmt.close();
     }
     
