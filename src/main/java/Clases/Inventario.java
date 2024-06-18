@@ -1,9 +1,5 @@
 package Clases;
 
-/**
- *
- * @author deand
- */
 public class Inventario {
     
     private String Lugar;
