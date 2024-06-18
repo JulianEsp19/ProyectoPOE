@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.xml.transform.TransformerException;
 public class Usuarios extends javax.swing.JFrame {
 
  
@@ -204,7 +205,17 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnModifcarAccesoActionPerformed
 
     private void BtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            Main principal = new Main();
+            principal.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_BtnMenuActionPerformed
 
     /**
