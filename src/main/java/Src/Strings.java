@@ -32,7 +32,6 @@ public class Strings {
         
         for (int i = 0; i < listaString.getLength(); i++) {
             Node nodoString = listaString.item(i);
-            System.out.println(nodoString.getAttributes().getNamedItem("value"));
             if(nodoString.getAttributes().getNamedItem("value").getTextContent().equals(nombreText)){
                 texto = nodoString.getTextContent();
                 return texto;

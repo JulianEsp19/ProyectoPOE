@@ -218,6 +218,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cambiar tu usuario"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCambiatUsuarioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="BtnCambiarContrase&#xf1;a">
       <Properties>
