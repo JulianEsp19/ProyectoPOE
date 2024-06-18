@@ -12,14 +12,14 @@ import javax.xml.transform.TransformerException;
  *
  * @author pablo
  */
-public class Inventario extends javax.swing.JFrame {
+public class InventarioForm extends javax.swing.JFrame {
 
     /**
      * Creates new form Inventario
      */
     
     UsuarioLogIn login;
-    public Inventario(UsuarioLogIn login) {
+    public InventarioForm(UsuarioLogIn login) {
         initComponents();
         this.login = login;
     }
@@ -40,21 +40,16 @@ public class Inventario extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
@@ -68,64 +63,53 @@ public class Inventario extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(68, 180, 138));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-caja-llena-20.png"))); // NOI18N
-        jButton2.setText("Guardar Cambios");
-
-        jButton3.setBackground(new java.awt.Color(68, 180, 138));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-análisis-de-stock-20.png"))); // NOI18N
-        jButton3.setText("Agregar");
-
         jMenuBar1.setBackground(new java.awt.Color(68, 180, 138));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-caja-llena-20.png"))); // NOI18N
         jMenu1.setText("ENTRADAS");
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-análisis-de-stock-20.png"))); // NOI18N
-        jMenu3.setText("Agregar");
-        jMenu1.add(jMenu3);
+        jMenuItem1.setText("Agregar");
+        jMenu1.add(jMenuItem1);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-caja-llena-20.png"))); // NOI18N
-        jMenu4.setText("Consultar");
-        jMenu1.add(jMenu4);
-
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-delete-15.png"))); // NOI18N
-        jMenu7.setText("Eliminar");
-        jMenu1.add(jMenu7);
+        jMenuItem2.setText("Consultar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/entregada-25.png"))); // NOI18N
         jMenu2.setText("SALIDAS");
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-deshacer-15.png"))); // NOI18N
-        jMenu5.setText("Agregar Salida");
-        jMenu2.add(jMenu5);
+        jMenuItem3.setText("Agregar");
+        jMenu2.add(jMenuItem3);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-deshacer-15.png"))); // NOI18N
-        jMenu6.setText("Consultar Salida");
-        jMenu2.add(jMenu6);
-
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-delete-15.png"))); // NOI18N
-        jMenu8.setText("Eliminar Salida");
-        jMenu2.add(jMenu8);
+        jMenuItem4.setText("Consultar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
 
         jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-almacén-20.png"))); // NOI18N
         jMenu9.setText("INVENTARIO");
 
-        jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-análisis-de-stock-20.png"))); // NOI18N
-        jMenu10.setText("Agregar Nuevo Inventario");
-        jMenu9.add(jMenu10);
+        jMenuItem5.setText("Agregar");
+        jMenu9.add(jMenuItem5);
 
-        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-caja-llena-20.png"))); // NOI18N
-        jMenu11.setText("Consultar Inventario");
-        jMenu9.add(jMenu11);
-
-        jMenu12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-delete-15.png"))); // NOI18N
-        jMenu12.setText("Eliminar Inventario");
-        jMenu9.add(jMenu12);
+        jMenuItem6.setText("Consultar");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem6);
 
         jMenuBar1.add(jMenu9);
 
@@ -136,11 +120,7 @@ public class Inventario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
+                .addContainerGap(346, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(71, 71, 71))
         );
@@ -148,10 +128,7 @@ public class Inventario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(394, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                .addComponent(jButton1)
                 .addGap(35, 35, 35))
         );
 
@@ -165,30 +142,58 @@ public class Inventario extends javax.swing.JFrame {
             menuprincipal.setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {
-            Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InventarioForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InventarioForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        try {
+            // TODO add your handling code here:
+            ConsultaEntradas entradas = new ConsultaEntradas();
+            entradas.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(InventarioForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        try {
+            // TODO add your handling code here:
+            ConsultaSalidas salidas = new ConsultaSalidas();
+            salidas.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(InventarioForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        try {
+            // TODO add your handling code here:
+            ConsultasInventario inventario = new ConsultasInventario();
+            inventario.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(InventarioForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }

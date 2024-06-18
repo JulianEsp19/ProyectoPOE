@@ -5,10 +5,15 @@
 package Forms;
 
 import Clases.Busqueda;
+import Clases.Editar;
+import Clases.Eliminar;
+import Clases.Ingresos;
+import Clases.Usuario;
 import Src.Atributos;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -55,6 +60,7 @@ public class ConsultaEntradas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaDatos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,18 +91,28 @@ public class ConsultaEntradas extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(19, 19, 19))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +120,9 @@ public class ConsultaEntradas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -115,6 +133,55 @@ public class ConsultaEntradas extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int filaseleccionada = tablaDatos.getSelectedRow();
+        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Deseas eliminar la entrada?");
+        if(filaseleccionada != -1 && confirmacion == JOptionPane.YES_OPTION){
+            
+            Ingresos ingreso = new Ingresos(
+    (String) modelo.getValueAt(filaseleccionada, 0),  // FechaIngreso
+    (String) modelo.getValueAt(filaseleccionada, 1),  // Almacen
+    (String) modelo.getValueAt(filaseleccionada, 2),  // FechaDe_R_OP
+    (String) modelo.getValueAt(filaseleccionada, 3),  // FechaSalidaCliente
+    (String) modelo.getValueAt(filaseleccionada, 4),  // ProgramadaCheckList
+    (String) modelo.getValueAt(filaseleccionada, 5),  // R_OP
+    (String) modelo.getValueAt(filaseleccionada, 6),  // OrdenCompra
+    (String) modelo.getValueAt(filaseleccionada, 7),  // OrdenCompraProvedor
+    (String) modelo.getValueAt(filaseleccionada, 8),  // Modelo
+    (String) modelo.getValueAt(filaseleccionada, 9),  // TipoEntregar
+    (String) modelo.getValueAt(filaseleccionada, 10), // ClaveIdentificador
+    (String) modelo.getValueAt(filaseleccionada, 11), // R_OP2
+    (String) modelo.getValueAt(filaseleccionada, 12), // Clave
+    (String) modelo.getValueAt(filaseleccionada, 13), // Provedor
+    (String) modelo.getValueAt(filaseleccionada, 14), // Cliente
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 15).toString()), // NumPedidoProvedor
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 16).toString()), // ClaveProducto
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 17).toString()), // Tarimas
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 18).toString()), // PiezaporBulto
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 19).toString()), // TotalBultos
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 20).toString()), // TotalPiezas
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 21).toString()), // PiezasRequendas
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 22).toString()), // Paletizado
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 23).toString()), // CamaPorPaletA1
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 24).toString()), // CamaPorPaletA2
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 25).toString()), // EstibasPorPalet
+    Integer.parseInt(modelo.getValueAt(filaseleccionada, 26).toString()), // TotalPiezasFinal
+    Float.parseFloat(modelo.getValueAt(filaseleccionada, 27).toString()), // Alto
+    Float.parseFloat(modelo.getValueAt(filaseleccionada, 28).toString()), // Ancho
+    Float.parseFloat(modelo.getValueAt(filaseleccionada, 29).toString()), // Largo
+    Float.parseFloat(modelo.getValueAt(filaseleccionada, 30).toString()), // CalibreFlauta
+    Float.parseFloat(modelo.getValueAt(filaseleccionada, 31).toString())  // Medidas
+);
+            Eliminar eliminar = new Eliminar();
+            try {
+                eliminar.eliminarIngreso(ingreso);
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,6 +223,7 @@ public class ConsultaEntradas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaDatos;
     // End of variables declaration//GEN-END:variables
