@@ -34,15 +34,15 @@ public class ListaInventario {
             Object datos[] = new Object[10];
             
             datos[0] = temporal.getLugar();
-            datos[0] = temporal.getNumTarimas();
-            datos[0] = temporal.getClave();
-            datos[0] = temporal.getCliente();
-            datos[0] = temporal.getModelo();
-            datos[0] = temporal.getPzBulto();
-            datos[0] = temporal.getTotalBultos();
-            datos[0] = temporal.getPzExtras();
-            datos[0] = temporal.getTotalPiezas();
-            datos[0] = temporal.getNota();
+            datos[1] = temporal.getNumTarimas();
+            datos[2] = temporal.getClave();
+            datos[3] = temporal.getCliente();
+            datos[4] = temporal.getModelo();
+            datos[5] = temporal.getPzBulto();
+            datos[6] = temporal.getTotalBultos();
+            datos[7] = temporal.getPzExtras();
+            datos[8] = temporal.getTotalPiezas();
+            datos[9] = temporal.getNota();
             
             temporal = temporal.getSiguiente();
             

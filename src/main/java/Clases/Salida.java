@@ -1,9 +1,5 @@
 package Clases;
 
-/**
- *
- * @author deand
- */
 public class Salida {
     private String Lugar;
     private int NumDeTarimas;
