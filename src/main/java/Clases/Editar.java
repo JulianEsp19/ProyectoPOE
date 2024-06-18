@@ -40,7 +40,7 @@ public class Editar extends DataBase{
         
         String editarUsuario = "UPDATE Usuarios SET "
                 + "TipoAcceso = "+accesoNuevo
-                + " WHERE NombreUsuario =' "+ antiguo.getUsuario() + " '";
+                + " WHERE NombreUsuario = '"+ antiguo.getUsuario() + "'";
         
         stmt.execute(editarUsuario);
         stmt.close();
