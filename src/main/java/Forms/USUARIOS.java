@@ -17,7 +17,7 @@ public class Usuarios extends javax.swing.JFrame {
     
     public Usuarios(UsuarioLogIn usuarioLogIn) {
         initComponents();
-       this.usuarioLogIn = usuarioLogIn;
+        this.usuarioLogIn = usuarioLogIn;
         modelo = (DefaultTableModel) jTable1.getModel();
         obtenerdatostabla();
         verificarTipoAcceso();
@@ -114,6 +114,11 @@ public class Usuarios extends javax.swing.JFrame {
         BtnCambiatUsuario.setBackground(new java.awt.Color(68, 180, 138));
         BtnCambiatUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-añadir-usuario-tipo-de-piel-masculina-7-20.png"))); // NOI18N
         BtnCambiatUsuario.setText("Cambiar tu usuario");
+        BtnCambiatUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCambiatUsuarioActionPerformed(evt);
+            }
+        });
 
         BtnCambiarContraseña.setBackground(new java.awt.Color(68, 180, 138));
         BtnCambiarContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-análisis-de-stock-20.png"))); // NOI18N
@@ -207,7 +212,7 @@ public class Usuarios extends javax.swing.JFrame {
     private void BtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuActionPerformed
         try {
             // TODO add your handling code here:
-            Main principal = new Main();
+            Main principal = new Main(usuarioLogIn);
             principal.setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {
@@ -217,6 +222,10 @@ public class Usuarios extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_BtnMenuActionPerformed
+
+    private void BtnCambiatUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCambiatUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCambiatUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

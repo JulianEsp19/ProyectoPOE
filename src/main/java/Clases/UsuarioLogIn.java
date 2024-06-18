@@ -73,5 +73,9 @@ public class UsuarioLogIn extends DataBase{
         
         return resultado;
     }
+
+    public boolean isSesionIniciada() {
+        return sesionIniciada;
+    }
     
 }

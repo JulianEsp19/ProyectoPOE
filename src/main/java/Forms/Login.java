@@ -1,20 +1,24 @@
 
 package Forms;
 
+import Clases.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author pablo
- */
 public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
+    
+    UsuarioLogIn login;
     public Login() {
         initComponents();
+        
+        login = new UsuarioLogIn();
     }
 
     /**
@@ -126,7 +130,19 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-
+        String usuario = txtUser.getText();
+        String contrasena = txtPass.getText();
+        
+        Usuario user = new Usuario(usuario, contrasena);
+        try {
+            if(login.comprobarUsuario(user)){
+                
+            }else{
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_IngresarActionPerformed
 
     private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed

@@ -10,37 +10,39 @@ import javax.xml.transform.TransformerException;
 public class Main extends javax.swing.JFrame {
 
     UsuarioLogIn usuariologin;
-    public Main() throws SQLException, TransformerException {
+    public Main(UsuarioLogIn login) throws SQLException, TransformerException {
         initComponents();
+        
+        this.usuariologin = login;
         verificarSesion();
         
     }
     
-   private boolean verificarSesion() throws SQLException, TransformerException{
-    usuariologin = new UsuarioLogIn();
-    Usuario usuario = new Usuario ("Admin","Admin");
-    usuariologin.comprobarUsuario(usuario);
-    usuariologin.mantenerSesion();
-    try {
-        if (!usuariologin.obtenerSesion()) {
-            JOptionPane.showMessageDialog(this, "No hay una sesión guardada. Redirigiendo al login.");
+    private boolean verificarSesion() throws SQLException, TransformerException{
+        usuariologin = new UsuarioLogIn();
+        Usuario usuario = new Usuario ("Admin","Admin");
+        usuariologin.comprobarUsuario(usuario);
+        usuariologin.mantenerSesion();
+        try {
+            if (!usuariologin.obtenerSesion() || usuariologin.isSesionIniciada()) {
+                JOptionPane.showMessageDialog(this, "No hay una sesión guardada. Redirigiendo al login.");
+                this.dispose();
+                SwingUtilities.invokeLater(() -> {
+                    new Login().setVisible(true); // Muestra Login
+                });
+                return false; // Indica que la sesión no es válida
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al comprobar la sesión.");
             this.dispose();
             SwingUtilities.invokeLater(() -> {
                 new Login().setVisible(true); // Muestra Login
             });
-            return false; // Indica que la sesión no es válida
+            return false; // Indica que hubo un error y la sesión no es válida
         }
-    } catch(Exception e){
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Error al comprobar la sesión.");
-        this.dispose();
-        SwingUtilities.invokeLater(() -> {
-            new Login().setVisible(true); // Muestra Login
-        });
-        return false; // Indica que hubo un error y la sesión no es válida
-    }
-    return true; // Indica que la sesión es válida (creo xd)
-} 
+        return true; // Indica que la sesión es válida (creo xd)
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -190,7 +192,7 @@ public class Main extends javax.swing.JFrame {
                Main mainFrame;
                 try {
                     
-                    mainFrame = new Main();
+                    mainFrame = new Main(null);
                     mainFrame.setVisible(true);
                 } catch (SQLException ex) {
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
