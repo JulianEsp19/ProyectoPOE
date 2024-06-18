@@ -1,22 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Forms;
 
-/**
- *
- * @author deand
- */
+import Clases.Agregar;
+import Clases.Salida;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class AgregarSalidas extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form AgregarSalidas
-     */
+    private String Lugar1;
+    private int NumDeTarimas1;
+    private int R_OP1;
+    private String Clave1;
+    private String Cliente1;
+    private String Modelo1;
+    private int PiezaPorBulto1;
+    private int TotalBultos1;
+    private int PiezasExtras1;
+    private int TotalPiezas1;
+
     public AgregarSalidas() {
         initComponents();
     }
+    public void obtenerdatos(){
+    
+        Lugar1 = Lugar.getText();
+        NumDeTarimas1 = Integer.parseInt(NumDeTarimas.getText());
+  
+        R_OP1 = Integer.parseInt(R_OP.getText());
+        Clave1 = Clave.getText();
+        Cliente1 = Cliente.getText();
+        Modelo1 = Modelo.getText();
+        PiezaPorBulto1 = Integer.parseInt(PiezaPorBulto.getText());
+        TotalBultos1 = Integer.parseInt(TotalBultos.getText());
+        PiezasExtras1 = Integer.parseInt(PiezasExtras.getText());
+        TotalPiezas1 = Integer.parseInt(TotalPiezas.getText());
 
+        
+    
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +72,6 @@ public class AgregarSalidas extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         BtnVolver = new javax.swing.JButton();
         BtnGuardar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setTitle("Agregar salidas");
 
@@ -73,6 +96,11 @@ public class AgregarSalidas extends javax.swing.JInternalFrame {
         jLabel10.setText("Total de piezas");
 
         BtnVolver.setText("Volver");
+        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVolverActionPerformed(evt);
+            }
+        });
 
         BtnGuardar.setText("Guardar");
         BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -80,8 +108,6 @@ public class AgregarSalidas extends javax.swing.JInternalFrame {
                 BtnGuardarActionPerformed(evt);
             }
         });
-
-        jButton1.setText("jButton1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,8 +117,6 @@ public class AgregarSalidas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(117, 117, 117)
                         .addComponent(BtnGuardar)
                         .addGap(34, 34, 34)
                         .addComponent(BtnVolver))
@@ -187,8 +211,7 @@ public class AgregarSalidas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnVolver)
-                    .addComponent(BtnGuardar)
-                    .addComponent(jButton1))
+                    .addComponent(BtnGuardar))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
@@ -197,7 +220,20 @@ public class AgregarSalidas extends javax.swing.JInternalFrame {
 
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
         // TODO add your handling code here:
+        Salida salida = new Salida (Lugar1, NumDeTarimas1,   R_OP1, Clave1 ,Cliente1 , Modelo1 ,PiezaPorBulto1 ,TotalBultos1 ,PiezasExtras1 ,TotalPiezas1  );
+        Agregar agregar = new Agregar();
+        try {
+            agregar.agregarSalida(salida);
+        } catch (SQLException ex) {
+            Logger.getLogger(AgregarSalidas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_BtnGuardarActionPerformed
+
+    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_BtnVolverActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -213,7 +249,6 @@ public class AgregarSalidas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField R_OP;
     private javax.swing.JTextField TotalBultos;
     private javax.swing.JTextField TotalPiezas;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
