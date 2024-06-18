@@ -6,6 +6,12 @@ public class Usuario {
     private String contrasena;
     private Boolean tipoAcceso;
 
+    public Usuario(String usuario) {
+        this.usuario = usuario;
+    }
+    
+    
+
     public Usuario(String usuario, String contrasena, Boolean tipoAcceso) {
         this.usuario = usuario;
         this.contrasena = contrasena;
