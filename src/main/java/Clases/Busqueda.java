@@ -116,4 +116,34 @@ public class Busqueda extends DataBase{
         
         return lista.toObject();
     }
+    
+    public Object[] obtenerTodosLasSalidas() throws SQLException{
+        ListaSalida lista = new ListaSalida();
+        
+        stmt = conexion.createStatement();
+        
+        String busquedaUsuario = "SELECT * FROM Salida";
+        
+        ResultSet resultado = stmt.executeQuery(busquedaUsuario);
+        
+        while(resultado.next()){
+            String Lugar = resultado.getString("");
+            int NumDeTarimas = resultado.getInt("");
+            int R_OP = resultado.getInt("");
+            String Clave = resultado.getString("");
+            String Cliente = resultado.getString("");
+            String Modelo = resultado.getString("");
+            int PiezaPorBulto = resultado.getInt("");
+            int TotalBultos = resultado.getInt("");
+            int PiezasExtras = resultado.getInt("");
+            int TotalPiezas = resultado.getInt("");
+            
+            NodoSalida nodo = new NodoSalida(Lugar, NumDeTarimas, R_OP, Clave, Cliente, Modelo, PiezaPorBulto, TotalBultos, PiezasExtras, TotalPiezas);
+            
+            lista.insertar(nodo);
+        }
+        
+        stmt.close();
+        return lista.toObject();
+    }
 }
