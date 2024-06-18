@@ -2,6 +2,7 @@ package Forms;
 import Clases.Agregar;
 import Clases.Busqueda;
 import Clases.Editar;
+import Clases.Eliminar;
 import Clases.Usuario;
 import Clases.UsuarioLogIn;
 import java.sql.SQLException;
@@ -292,6 +293,14 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
         // TODO add your handling code here:
+        String usuario = JOptionPane.showInputDialog("Ingrese el nombre del Usuario que va a eliminar");
+        
+        Eliminar eliminar = new Eliminar();
+        try {
+            eliminar.eliminarUsuario(usuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jMenu7ActionPerformed
 
     /**
