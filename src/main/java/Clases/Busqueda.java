@@ -127,17 +127,17 @@ public class Busqueda extends DataBase{
         ResultSet resultado = stmt.executeQuery(busquedaUsuario);
         
         while(resultado.next()){
-            String Lugar = resultado.getString("");
-            int NumDeTarimas = resultado.getInt("");
-            int R_OP = resultado.getInt("");
-            String Clave = resultado.getString("");
-            String Cliente = resultado.getString("");
-            String Modelo = resultado.getString("");
-            int PiezaPorBulto = resultado.getInt("");
-            int TotalBultos = resultado.getInt("");
-            int PiezasExtras = resultado.getInt("");
-            int TotalPiezas = resultado.getInt("");
-            
+            String Lugar = resultado.getString("Lugar");
+            int NumDeTarimas = resultado.getInt("NumDeTarimas");
+            int R_OP = resultado.getInt("R_OP");
+            String Clave = resultado.getString("Clave");
+            String Cliente = resultado.getString("Cliente");
+            String Modelo = resultado.getString("Modelo");
+            int PiezaPorBulto = resultado.getInt("PiezaPorBulto");
+            int TotalBultos = resultado.getInt("TotalBultos");
+            int PiezasExtras = resultado.getInt("PiezasExtras");
+            int TotalPiezas = resultado.getInt("TotalPiezas");
+
             NodoSalida nodo = new NodoSalida(Lugar, NumDeTarimas, R_OP, Clave, Cliente, Modelo, PiezaPorBulto, TotalBultos, PiezasExtras, TotalPiezas);
             
             lista.insertar(nodo);
