@@ -19,6 +19,7 @@ public class UsuarioLogIn extends DataBase{
     private boolean sesionIniciada;
 
     public UsuarioLogIn() {
+        this.sesionIniciada = false;
     }
     
     

@@ -1,44 +1,40 @@
 package Forms;
 import Clases.Usuario;
 import Clases.UsuarioLogIn;
+import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.xml.transform.TransformerException;
+
 public class Main extends javax.swing.JFrame {
 
     UsuarioLogIn usuariologin;
+    boolean valor;
     public Main(UsuarioLogIn login) throws SQLException, TransformerException {
         initComponents();
-        
-        this.usuariologin = login;
-        verificarSesion();
-        
+        if(login == null){
+            usuariologin = new UsuarioLogIn();
+        }else{
+            this.usuariologin = login;
+        }
+        valor = verificarSesion();
     }
     
     private boolean verificarSesion() throws SQLException, TransformerException{
-        usuariologin = new UsuarioLogIn();
-        Usuario usuario = new Usuario ("Admin","Admin");
-        usuariologin.comprobarUsuario(usuario);
-        usuariologin.mantenerSesion();
         try {
-            if (!usuariologin.obtenerSesion() || usuariologin.isSesionIniciada()) {
-                JOptionPane.showMessageDialog(this, "No hay una sesión guardada. Redirigiendo al login.");
-                this.dispose();
-                SwingUtilities.invokeLater(() -> {
-                    new Login().setVisible(true); // Muestra Login
-                });
+            if (!(usuariologin.obtenerSesion() || usuariologin.isSesionIniciada())) {
+                Login login = new Login(usuariologin);
+                login.setVisible(true);
+                this.setVisible(false);
+                JOptionPane.showMessageDialog(login, "No hay una sesión guardada. Redirigiendo al login.");
                 return false; // Indica que la sesión no es válida
             }
         } catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al comprobar la sesión.");
-            this.dispose();
-            SwingUtilities.invokeLater(() -> {
-                new Login().setVisible(true); // Muestra Login
-            });
+            JOptionPane.showMessageDialog(null, "Error al comprobar la sesión.");
             return false; // Indica que hubo un error y la sesión no es válida
         }
         return true; // Indica que la sesión es válida (creo xd)
@@ -57,7 +53,6 @@ public class Main extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -84,14 +79,11 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-buscar-96.png"))); // NOI18N
-        jButton3.setText("BUSCAR");
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-almacén-96.png"))); // NOI18N
         jLabel2.setText("ALMACEN");
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-izquierda-15.png"))); // NOI18N
-        jButton4.setText("SALIR");
+        jButton4.setText("SALIR y Cerrar Sesion");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -99,7 +91,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-deshacer-15.png"))); // NOI18N
-        jButton5.setText("ATRÁS");
+        jButton5.setText("Salir");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -111,40 +103,42 @@ public class Main extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jButton1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(258, 258, 258)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jButton1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4)
+                        .addContainerGap(134, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jButton2)
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton3)))
-                .addContainerGap(31, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(155, 155, 155))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(258, 258, 258)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(272, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(jLabel2)
-                .addGap(102, 102, 102)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
-                .addGap(60, 60, 60))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))
+                        .addGap(60, 258, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton4)
+                            .addComponent(jButton5))
+                        .addGap(71, 71, 71))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -173,12 +167,22 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt){
+        
+    }
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        System.exit(WIDTH);
+        try {
+            usuariologin.borrarSesionMantenida();
+        } catch (TransformerException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
@@ -193,17 +197,14 @@ public class Main extends javax.swing.JFrame {
                 try {
                     
                     mainFrame = new Main(null);
-                    mainFrame.setVisible(true);
+                    if(mainFrame.valor){
+                        mainFrame.setVisible(true);
+                    }
                 } catch (SQLException ex) {
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (TransformerException ex) {
                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
-               
-               
-                   
-               
-                
             }
         });
     }
@@ -211,7 +212,6 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;

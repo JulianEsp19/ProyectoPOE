@@ -1,6 +1,8 @@
 package Forms;
+import Clases.Agregar;
 import Clases.Busqueda;
 import Clases.Editar;
+import Clases.Eliminar;
 import Clases.Usuario;
 import Clases.UsuarioLogIn;
 import java.sql.SQLException;
@@ -69,8 +71,6 @@ public class Usuarios extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
 
@@ -123,29 +123,42 @@ public class Usuarios extends javax.swing.JFrame {
         BtnCambiarContraseña.setBackground(new java.awt.Color(68, 180, 138));
         BtnCambiarContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-análisis-de-stock-20.png"))); // NOI18N
         BtnCambiarContraseña.setText("Cambiar tu contraseña");
+        BtnCambiarContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCambiarContraseñaActionPerformed(evt);
+            }
+        });
 
         jMenuBar1.setBackground(new java.awt.Color(68, 180, 138));
 
         jMenu1.setText("AGREGAR");
 
         jMenu3.setText("Agregar nuevo usuario");
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenu3);
 
         jMenu5.setText("Agregar Administrador");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenu5);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("EDITAR");
-
-        jMenu4.setText("Editar Usuario");
-        jMenu2.add(jMenu4);
-
-        jMenuBar1.add(jMenu2);
-
         jMenu6.setText("ELIMINAR");
 
         jMenu7.setText("Eliminar Usuario");
+        jMenu7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu7ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenu7);
 
         jMenuBar1.add(jMenu6);
@@ -225,7 +238,70 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void BtnCambiatUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCambiatUsuarioActionPerformed
         // TODO add your handling code here:
+        String nuevoUsuario = JOptionPane.showInputDialog("Nombre de Usuario Nuevo");
+        Editar edicion = new Editar();
+        Usuario usuario = new Usuario(nuevoUsuario, usuarioLogIn.getUsuario().getContrasena(), usuarioLogIn.getUsuario().getTipoAcceso());
+        try {
+            edicion.editarUsuarioCompleto(usuarioLogIn.getUsuario(), usuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_BtnCambiatUsuarioActionPerformed
+
+    private void BtnCambiarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCambiarContraseñaActionPerformed
+        String nuevaContrasena = JOptionPane.showInputDialog("Contraseña de Usuario Nuevo");
+        Editar edicion = new Editar();
+        Usuario usuario = new Usuario(usuarioLogIn.getUsuario().getUsuario(), nuevaContrasena,usuarioLogIn.getUsuario().getTipoAcceso());
+        try {
+            edicion.editarUsuarioCompleto(usuarioLogIn.getUsuario(), usuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BtnCambiarContraseñaActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        // TODO add your handling code here:
+        String usuario = JOptionPane.showInputDialog("Ingrese el nombre del usuario a crear");
+        String contrasena = JOptionPane.showInputDialog("Ingrese la contraseña del usuario a agregar");
+        
+        Agregar agregar = new Agregar();
+        
+        Usuario usuarioNuevo = new Usuario(usuario, contrasena, false);
+        
+        try {
+            agregar.agregarUsuario(usuarioNuevo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        // TODO add your handling code here:
+        String usuario = JOptionPane.showInputDialog("Ingrese el nombre del usuario a crear");
+        String contrasena = JOptionPane.showInputDialog("Ingrese la contraseña del usuario a agregar");
+        
+        Agregar agregar = new Agregar();
+        
+        Usuario usuarioNuevo = new Usuario(usuario, contrasena, true);
+        
+        try {
+            agregar.agregarUsuario(usuarioNuevo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
+        // TODO add your handling code here:
+        String usuario = JOptionPane.showInputDialog("Ingrese el nombre del Usuario que va a eliminar");
+        
+        Eliminar eliminar = new Eliminar();
+        try {
+            eliminar.eliminarUsuario(usuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenu7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,9 +315,7 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JButton BtnModifcarAcceso;
     private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;

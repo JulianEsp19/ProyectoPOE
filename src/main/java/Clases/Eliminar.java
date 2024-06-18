@@ -7,12 +7,11 @@ public class Eliminar extends DataBase {
     public Eliminar() {
     }
     
-    public void eliminarUsuario(Usuario usuario) throws SQLException{
+    public void eliminarUsuario(String usuario) throws SQLException{
         stmt = conexion.createStatement();
         
         String eliminarUsuario = "DELETE FROM Usuarios WHERE "
-                + "NombreUsuario='"+ usuario.getUsuario() + "' "
-                + "AND ContrasenaUsuario='"+ usuario.getContrasena()+ "'";
+                + "NombreUsuario='"+ usuario + "'";
         
         stmt.execute(eliminarUsuario);
         stmt.close();
