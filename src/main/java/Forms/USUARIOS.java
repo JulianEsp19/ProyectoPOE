@@ -63,6 +63,8 @@ public class Usuarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        BtnModifcarAcceso.setBackground(new java.awt.Color(68, 180, 138));
+        BtnModifcarAcceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-análisis-de-stock-20.png"))); // NOI18N
         BtnModifcarAcceso.setText("Modificar acceso");
         BtnModifcarAcceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +72,8 @@ public class Usuarios extends javax.swing.JFrame {
             }
         });
 
+        BtnMenu.setBackground(new java.awt.Color(68, 180, 138));
+        BtnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-almacén-20.png"))); // NOI18N
         BtnMenu.setText("Volver al menu");
         BtnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,9 +91,15 @@ public class Usuarios extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
+        BtnCambiatUsuario.setBackground(new java.awt.Color(68, 180, 138));
+        BtnCambiatUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-añadir-usuario-tipo-de-piel-masculina-7-20.png"))); // NOI18N
         BtnCambiatUsuario.setText("Cambiar tu usuario");
 
+        BtnCambiarContraseña.setBackground(new java.awt.Color(68, 180, 138));
+        BtnCambiarContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-análisis-de-stock-20.png"))); // NOI18N
         BtnCambiarContraseña.setText("Cambiar tu contraseña");
+
+        jMenuBar1.setBackground(new java.awt.Color(68, 180, 138));
 
         jMenu1.setText("AGREGAR");
 
@@ -126,10 +136,11 @@ public class Usuarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(BtnModifcarAcceso)
-                        .addGap(244, 244, 244)
+                        .addGap(85, 85, 85)
                         .addComponent(BtnMenu)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnCambiatUsuario)
@@ -144,7 +155,7 @@ public class Usuarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnCambiatUsuario)
                     .addComponent(BtnCambiarContraseña))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
