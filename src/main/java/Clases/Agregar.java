@@ -62,7 +62,7 @@ public class Agregar extends DataBase{
                 ingreso.getAncho() + ", " +
                 ingreso.getLargo() + ", " +
                 ingreso.getCalibreFlauta() + ", " +
-                ingreso.getMedidas();
+                ingreso.getMedidas() + ")";
         
         stmt.execute(insertarIngreso);
         stmt.close();
@@ -89,7 +89,7 @@ public class Agregar extends DataBase{
                 inventario.getTotalBultos() + ", " +
                 inventario.getPzExtras() + ", " +
                 inventario.getTotalPiezas() + ", " +
-                "'" + inventario.getNota() + "'";
+                "'" + inventario.getNota() + "'"+ ")";
         
         stmt.execute(insertarIngreso);
         stmt.close();
@@ -116,7 +116,7 @@ public class Agregar extends DataBase{
                 salida.getPiezaPorBulto() + ", " +
                 salida.getTotalBultos() + ", " +
                 salida.getPiezasExtras() + ", " +
-                salida.getTotalPiezas();
+                salida.getTotalPiezas()+ ")";
         
         stmt.execute(insertarIngreso);
         stmt.close();
