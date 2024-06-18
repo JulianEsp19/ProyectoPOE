@@ -49,7 +49,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        Ingresar.setBackground(new java.awt.Color(13, 36, 35));
+        Ingresar.setBackground(new java.awt.Color(68, 180, 138));
         Ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-añadir-usuario-tipo-de-piel-masculina-7-15.png"))); // NOI18N
         Ingresar.setText("Iniciar Sesión");
         Ingresar.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +58,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(13, 36, 35));
+        jButton3.setBackground(new java.awt.Color(68, 180, 138));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-análisis-de-stock-20.png"))); // NOI18N
         jButton3.setText("Salir");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtPass.setText("jPasswordField1");
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPassActionPerformed(evt);
