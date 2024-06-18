@@ -1,18 +1,26 @@
 package Forms;
+import Clases.Usuario;
 import Clases.UsuarioLogIn;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import javax.xml.transform.TransformerException;
 public class Main extends javax.swing.JFrame {
 
-    public Main() {
-       
+    UsuarioLogIn usuariologin;
+    public Main() throws SQLException, TransformerException {
         initComponents();
-        
+        verificarSesion();
         
     }
     
-   private boolean verificarSesion(){
-    UsuarioLogIn usuariologin = new UsuarioLogIn();
+   private boolean verificarSesion() throws SQLException, TransformerException{
+    usuariologin = new UsuarioLogIn();
+    Usuario usuario = new Usuario ("Admin","Admin");
+    usuariologin.comprobarUsuario(usuario);
+    usuariologin.mantenerSesion();
     try {
         if (!usuariologin.obtenerSesion()) {
             JOptionPane.showMessageDialog(this, "No hay una sesión guardada. Redirigiendo al login.");
@@ -154,6 +162,9 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Usuarios ventanaUsuario = new Usuarios(usuariologin);
+        ventanaUsuario.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -176,11 +187,20 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                
-               Main mainFrame = new Main();
+               Main mainFrame;
+                try {
+                    
+                    mainFrame = new Main();
+                    mainFrame.setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (TransformerException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
                
-               if(mainFrame.verificarSesion()){
-                   mainFrame.setVisible(true);
-               }
+               
+                   
+               
                 
             }
         });

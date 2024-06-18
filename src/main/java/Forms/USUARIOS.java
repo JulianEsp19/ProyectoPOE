@@ -1,18 +1,37 @@
 package Forms;
 import Clases.Busqueda;
+import Clases.Editar;
+import Clases.Usuario;
+import Clases.UsuarioLogIn;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 public class Usuarios extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RegistroUsuarios
-     */
+ 
     private DefaultTableModel modelo;
+    private UsuarioLogIn usuarioLogIn;
     
-    public Usuarios() {
+    public Usuarios(UsuarioLogIn usuarioLogIn) {
         initComponents();
+       this.usuarioLogIn = usuarioLogIn;
         modelo = (DefaultTableModel) jTable1.getModel();
         obtenerdatostabla();
+        verificarTipoAcceso();
+    }
+  
+    private void verificarTipoAcceso(){
+        
+            if (usuarioLogIn.getUsuario().getTipoAcceso()) {
+           BtnModifcarAcceso.setEnabled(true);
+           
+           
+            
+        }else{
+            BtnModifcarAcceso.setEnabled(false);
+        }
     }
     
     private void obtenerdatostabla(){
@@ -27,7 +46,7 @@ public class Usuarios extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -140,11 +159,11 @@ public class Usuarios extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnCambiatUsuario)
                     .addComponent(BtnCambiarContraseña))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -158,6 +177,19 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void BtnModifcarAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModifcarAccesoActionPerformed
         // TODO add your handling code here:
+        int filaseleccionada = jTable1.getSelectedRow();
+        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Deseas cambiar el tipo de acceso ?");
+        if(filaseleccionada != -1 && confirmacion == JOptionPane.YES_OPTION){
+            String usuarioSeleccionado = (String) modelo.getValueAt(filaseleccionada, 0);
+            boolean usuarioAcceso = (boolean) modelo.getValueAt(filaseleccionada, 1);
+            Usuario usuario = new Usuario(usuarioSeleccionado);
+            Editar editar = new Editar(); 
+            try {
+                editar.editarUsuarioAcceso(usuario, !usuarioAcceso);
+            } catch (SQLException ex) {
+                Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_BtnModifcarAccesoActionPerformed
 
     private void BtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMenuActionPerformed
@@ -167,44 +199,7 @@ public class Usuarios extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Usuarios().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCambiarContraseña;
