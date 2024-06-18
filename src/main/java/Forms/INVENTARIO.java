@@ -1,12 +1,25 @@
 package Forms;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
+/**
+ *
+ * @author pablo
+ */
 public class Inventario extends javax.swing.JFrame {
 
     /**
-     * Creates new form INVENTARIO
+     * Creates new form Inventario
      */
     public Inventario() {
         initComponents();
+    }
+    
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Icons/folder/Logo.png"));
+        return retValue;
     }
 
     /**
@@ -18,91 +31,95 @@ public class Inventario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
-        jPanel1.setForeground(java.awt.Color.white);
+        jButton1.setBackground(new java.awt.Color(68, 180, 138));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-almacén-20.png"))); // NOI18N
+        jButton1.setText("Volver al Menu");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-registros-16.png"))); // NOI18N
-        jButton1.setText("Guardar Datos");
+        jButton2.setBackground(new java.awt.Color(68, 180, 138));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-caja-llena-20.png"))); // NOI18N
+        jButton2.setText("Guardar Cambios");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-delete-15.png"))); // NOI18N
-        jButton2.setText("Borrar Campos");
+        jButton3.setBackground(new java.awt.Color(68, 180, 138));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-análisis-de-stock-20.png"))); // NOI18N
+        jButton3.setText("Agregar");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-almacén-20.png"))); // NOI18N
-        jButton3.setText("Menú Principal");
+        jMenuBar1.setBackground(new java.awt.Color(68, 180, 138));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jButton1)
-                .addGap(45, 45, 45)
-                .addComponent(jButton2)
-                .addGap(73, 73, 73)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(396, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(42, 42, 42))
-        );
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-caja-llena-20.png"))); // NOI18N
+        jMenu1.setText("ENTRADAS");
 
-        jMenu1.setText("File");
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-análisis-de-stock-20.png"))); // NOI18N
+        jMenu3.setText("Agregar");
+        jMenu1.add(jMenu3);
 
-        jMenu4.setText("jMenu4");
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-caja-llena-20.png"))); // NOI18N
+        jMenu4.setText("Editar");
         jMenu1.add(jMenu4);
 
-        jMenu7.setText("jMenu7");
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-delete-15.png"))); // NOI18N
+        jMenu7.setText("Eliminar");
         jMenu1.add(jMenu7);
-
-        jMenu10.setText("jMenu10");
-        jMenu1.add(jMenu10);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/entregada-25.png"))); // NOI18N
+        jMenu2.setText("SALIDAS");
 
-        jMenu5.setText("jMenu5");
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-deshacer-15.png"))); // NOI18N
+        jMenu5.setText("Agregar Salida");
         jMenu2.add(jMenu5);
 
-        jMenu8.setText("jMenu8");
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-deshacer-15.png"))); // NOI18N
+        jMenu6.setText("Editar Salida");
+        jMenu2.add(jMenu6);
+
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-delete-15.png"))); // NOI18N
+        jMenu8.setText("Eliminar Salida");
         jMenu2.add(jMenu8);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("jMenu3");
+        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-almacén-20.png"))); // NOI18N
+        jMenu9.setText("INVENTARIO");
 
-        jMenu6.setText("jMenu6");
-        jMenu3.add(jMenu6);
+        jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-análisis-de-stock-20.png"))); // NOI18N
+        jMenu10.setText("Agregar Nuevo Inventario");
+        jMenu9.add(jMenu10);
 
-        jMenu9.setText("jMenu9");
-        jMenu3.add(jMenu9);
+        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-caja-llena-20.png"))); // NOI18N
+        jMenu11.setText("Editar Inventario");
+        jMenu9.add(jMenu11);
 
-        jMenuBar1.add(jMenu3);
+        jMenu12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-delete-15.png"))); // NOI18N
+        jMenu12.setText("Eliminar Inventario");
+        jMenu9.add(jMenu12);
+
+        jMenuBar1.add(jMenu9);
 
         setJMenuBar(jMenuBar1);
 
@@ -110,15 +127,34 @@ public class Inventario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(394, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(35, 35, 35))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Main menuprincipal = new Main();
+        menuprincipal.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,9 +182,6 @@ public class Inventario extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -164,6 +197,8 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -173,6 +208,5 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
