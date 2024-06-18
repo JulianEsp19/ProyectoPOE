@@ -1,20 +1,42 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Forms;
 
-/**
- *
- * @author deand
- */
+import Clases.Agregar;
+import Clases.Inventario;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 public class AgregarInventarios extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form AgregarInventarios
-     */
+    
     public AgregarInventarios() {
         initComponents();
+    }
+            private String Lugar1;
+    private int NumTarimas1;
+    private String Clave1;
+    private String Cliente1;
+    private String Modelo1;
+    private int PzBulto1;
+    private int TotalBultos1;
+    private int PzExtras1;
+    private int TotalPiezas1;
+    private String Nota1;
+  
+    
+    public void obtenerdatos(){
+    Lugar1 = Lugar.getText();
+NumTarimas1 = Integer.parseInt(NumTarimas.getText());
+Clave1 = Clave.getText();
+Cliente1 = Cliente.getText();
+Modelo1 = Modelo.getText();
+PzBulto1 = Integer.parseInt(PzBulto.getText());
+TotalBultos1 = Integer.parseInt(TotalBultos.getText());
+PzExtras1 = Integer.parseInt(PzExtras.getText());
+TotalPiezas1 = Integer.parseInt(TotalPiezas.getText());
+Nota1 = Nota.getText();
+
     }
 
     /**
@@ -72,8 +94,18 @@ public class AgregarInventarios extends javax.swing.JInternalFrame {
         jLabel10.setText("Nota");
 
         BtnVolver.setText("Volver");
+        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVolverActionPerformed(evt);
+            }
+        });
 
         BtnGuardar.setText("Guardar");
+        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,6 +211,22 @@ public class AgregarInventarios extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_BtnVolverActionPerformed
+
+    private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
+        // TODO add your handling code here:
+        Inventario inventario = new Inventario(Lugar1 ,NumTarimas1 ,Clave1 ,Cliente1 ,Modelo1 ,PzBulto1 ,TotalBultos1 ,PzExtras1 ,TotalPiezas1,Nota1 );
+        Agregar agregar = new Agregar();
+        try {
+            agregar.agregarInventario(inventario);
+        } catch (SQLException ex) {
+            Logger.getLogger(AgregarInventarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BtnGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
