@@ -220,6 +220,7 @@ public class AgregarSalidas extends javax.swing.JInternalFrame {
 
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
         // TODO add your handling code here:
+        obtenerdatos();
         Salida salida = new Salida (Lugar1, NumDeTarimas1,   R_OP1, Clave1 ,Cliente1 , Modelo1 ,PiezaPorBulto1 ,TotalBultos1 ,PiezasExtras1 ,TotalPiezas1  );
         Agregar agregar = new Agregar();
         try {

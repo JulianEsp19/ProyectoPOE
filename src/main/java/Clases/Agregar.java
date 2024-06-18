@@ -64,7 +64,7 @@ public class Agregar extends DataBase{
                 ingreso.getCalibreFlauta() + ", " +
                 ingreso.getMedidas() + ")";
         
-        stmt.execute(insertarIngreso);
+        stmt.executeUpdate(insertarIngreso);
         stmt.close();
     }
     
@@ -73,7 +73,7 @@ public class Agregar extends DataBase{
         
         String[] atributos = Atributos.Inventario;
         
-        String insertarIngreso = "INSERT INTO Ingresos (";
+        String insertarIngreso = "INSERT INTO Inventario (";
         
         for (int i = 0; i < atributos.length-1; i++) {
             insertarIngreso += atributos[i] + ",";
@@ -91,7 +91,7 @@ public class Agregar extends DataBase{
                 inventario.getTotalPiezas() + ", " +
                 "'" + inventario.getNota() + "'"+ ")";
         
-        stmt.execute(insertarIngreso);
+        stmt.executeUpdate(insertarIngreso);
         stmt.close();
     }
     
@@ -100,7 +100,7 @@ public class Agregar extends DataBase{
         
         String[] atributos = Atributos.Salida;
         
-        String insertarIngreso = "INSERT INTO Ingresos (";
+        String insertarIngreso = "INSERT INTO Salida (";
         
         for (int i = 0; i < atributos.length-1; i++) {
             insertarIngreso += atributos[i] + ",";
@@ -118,7 +118,7 @@ public class Agregar extends DataBase{
                 salida.getPiezasExtras() + ", " +
                 salida.getTotalPiezas()+ ")";
         
-        stmt.execute(insertarIngreso);
+        stmt.executeUpdate(insertarIngreso);
         stmt.close();
     }
 

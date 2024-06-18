@@ -13,7 +13,7 @@ public class Atributos {
         "Modelo", 
         "TipoEntregar", 
         "ClaveIdentificador", 
-        "R_OP2", 
+        "R_0P2", 
         "Clave", 
         "Provedor", 
         "Cliente", 

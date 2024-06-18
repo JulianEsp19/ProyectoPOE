@@ -61,7 +61,7 @@ public class Eliminar extends DataBase {
     public void eliminarInventario(Inventario inventario) throws SQLException{
         stmt = conexion.createStatement();
         
-        String sentenciaSQL = "DELETE FROM nombre_de_la_tabla WHERE " +
+        String sentenciaSQL = "DELETE FROM Inventario WHERE " +
             "Lugar = '" + inventario.getLugar() + "' AND " +
             "NumTarimas = " + inventario.getNumTarimas() + " AND " +
             "Clave = '" + inventario.getClave() + "' AND " +
@@ -73,14 +73,14 @@ public class Eliminar extends DataBase {
             "TotalPiezas = " + inventario.getTotalPiezas() + " AND " +
             "Nota = '" + inventario.getNota() + "'";
         
-        stmt.execute(sentenciaSQL);
+        stmt.executeUpdate(sentenciaSQL);
         stmt.close();
     }
     
     public void eliminarSalida(Salida salida) throws SQLException{
         stmt = conexion.createStatement();
         
-        String sentenciaSQL = "DELETE FROM nombre_de_la_tabla WHERE " +
+        String sentenciaSQL = "DELETE FROM Salida WHERE " +
             "Lugar = '" + salida.getLugar() + "' AND " +
             "NumDeTarimas = " + salida.getNumDeTarimas() + " AND " +
             "R_OP = " + salida.getR_OP() + " AND " +

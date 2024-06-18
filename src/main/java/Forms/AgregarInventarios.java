@@ -219,6 +219,7 @@ Nota1 = Nota.getText();
 
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
         // TODO add your handling code here:
+        obtenerdatos();
         Inventario inventario = new Inventario(Lugar1 ,NumTarimas1 ,Clave1 ,Cliente1 ,Modelo1 ,PzBulto1 ,TotalBultos1 ,PzExtras1 ,TotalPiezas1,Nota1 );
         Agregar agregar = new Agregar();
         try {
