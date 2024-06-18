@@ -1,9 +1,5 @@
 package Clases;
 
-/**
- *
- * @author deand
- */
 public class Ingresos {
     
     private String FechaIngreso;
@@ -33,13 +29,13 @@ public class Ingresos {
     private int CamaPorPaletA2;
     private int EstibasPorPalet;
     private int TotalPiezasFinal;
-    private Float Alto;
-    private Float Ancho;
-    private Float Largo;
-    private Float CalibreFlauta;
-    private Float Medidas;
+    private float Alto;
+    private float Ancho;
+    private float Largo;
+    private float CalibreFlauta;
+    private float Medidas;
 
-    public Ingresos(String FechaIngreso, String Almacen, String FechaDe_R_OP, String FechaSalidaCliente, String ProgramadaCheckList, String R_OP, String OrdenCompra, String OrdenCompraProvedor, String Modelo, String TipoEntregar, String ClaveIdentificador, String R_OP2, String Clave, String Provedor, String Cliente, int NumPedidoProvedor, int ClaveProducto, int Tarimas, int PiezaporBulto, int TotalBultos, int TotalPiezas, int PiezasRequendas, int Paletizado, int CamaPorPaletA1, int CamaPorPaletA2, int EstibasPorPalet, int TotalPiezasFinal, Float Alto, Float Ancho, Float Largo, Float CalibreFlauta, Float Medidas) {
+    public Ingresos(String FechaIngreso, String Almacen, String FechaDe_R_OP, String FechaSalidaCliente, String ProgramadaCheckList, String R_OP, String OrdenCompra, String OrdenCompraProvedor, String Modelo, String TipoEntregar, String ClaveIdentificador, String R_OP2, String Clave, String Provedor, String Cliente, int NumPedidoProvedor, int ClaveProducto, int Tarimas, int PiezaporBulto, int TotalBultos, int TotalPiezas, int PiezasRequendas, int Paletizado, int CamaPorPaletA1, int CamaPorPaletA2, int EstibasPorPalet, int TotalPiezasFinal, float Alto, float Ancho, float Largo, float CalibreFlauta, float Medidas) {
         this.FechaIngreso = FechaIngreso;
         this.Almacen = Almacen;
         this.FechaDe_R_OP = FechaDe_R_OP;
@@ -292,43 +288,43 @@ public class Ingresos {
         this.TotalPiezasFinal = TotalPiezasFinal;
     }
 
-    public Float getAlto() {
+    public float getAlto() {
         return Alto;
     }
 
-    public void setAlto(Float Alto) {
+    public void setAlto(float Alto) {
         this.Alto = Alto;
     }
 
-    public Float getAncho() {
+    public float getAncho() {
         return Ancho;
     }
 
-    public void setAncho(Float Ancho) {
+    public void setAncho(float Ancho) {
         this.Ancho = Ancho;
     }
 
-    public Float getLargo() {
+    public float getLargo() {
         return Largo;
     }
 
-    public void setLargo(Float Largo) {
+    public void setLargo(float Largo) {
         this.Largo = Largo;
     }
 
-    public Float getCalibreFlauta() {
+    public float getCalibreFlauta() {
         return CalibreFlauta;
     }
 
-    public void setCalibreFlauta(Float CalibreFlauta) {
+    public void setCalibreFlauta(float CalibreFlauta) {
         this.CalibreFlauta = CalibreFlauta;
     }
 
-    public Float getMedidas() {
+    public float getMedidas() {
         return Medidas;
     }
 
-    public void setMedidas(Float Medidas) {
+    public void setMedidas(float Medidas) {
         this.Medidas = Medidas;
     }
     
