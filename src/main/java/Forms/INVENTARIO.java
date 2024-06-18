@@ -86,7 +86,7 @@ public class Inventario extends javax.swing.JFrame {
         jMenu1.add(jMenu3);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-caja-llena-20.png"))); // NOI18N
-        jMenu4.setText("Editar");
+        jMenu4.setText("Consultar");
         jMenu1.add(jMenu4);
 
         jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-delete-15.png"))); // NOI18N
@@ -103,7 +103,7 @@ public class Inventario extends javax.swing.JFrame {
         jMenu2.add(jMenu5);
 
         jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-deshacer-15.png"))); // NOI18N
-        jMenu6.setText("Editar Salida");
+        jMenu6.setText("Consultar Salida");
         jMenu2.add(jMenu6);
 
         jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-delete-15.png"))); // NOI18N
@@ -120,7 +120,7 @@ public class Inventario extends javax.swing.JFrame {
         jMenu9.add(jMenu10);
 
         jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/Copia de icons8-caja-llena-20.png"))); // NOI18N
-        jMenu11.setText("Editar Inventario");
+        jMenu11.setText("Consultar Inventario");
         jMenu9.add(jMenu11);
 
         jMenu12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/folder/icons8-delete-15.png"))); // NOI18N

@@ -30,7 +30,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Icons/folder/Copia de icons8-caja-llena-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Editar"/>
+                <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu7">
@@ -64,7 +64,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Icons/folder/icons8-deshacer-15.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Editar Salida"/>
+                <Property name="text" type="java.lang.String" value="Consultar Salida"/>
               </Properties>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu8">
@@ -98,7 +98,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Icons/folder/Copia de icons8-caja-llena-20.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Editar Inventario"/>
+                <Property name="text" type="java.lang.String" value="Consultar Inventario"/>
               </Properties>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu12">
