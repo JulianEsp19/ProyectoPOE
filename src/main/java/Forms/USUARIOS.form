@@ -36,11 +36,17 @@
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="jMenu3">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/folder/icons8-a&#xf1;adir-usuario-tipo-de-piel-masculina-7-15.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Agregar nuevo usuario"/>
               </Properties>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu5">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/folder/icons8-a&#xf1;adir-usuario-tipo-de-piel-masculina-7-15.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Agregar Administrador"/>
               </Properties>
             </Menu>
@@ -53,6 +59,9 @@
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="jMenu4">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/folder/icons8-registros-16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Editar Usuario"/>
               </Properties>
             </Menu>
@@ -65,6 +74,9 @@
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="jMenu7">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/folder/icons8-delete-15.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Eliminar Usuario"/>
               </Properties>
             </Menu>
@@ -79,7 +91,7 @@
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -157,6 +169,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Men&#xfa; Principal"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
